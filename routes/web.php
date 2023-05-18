@@ -23,3 +23,5 @@ Route::post('/admin/create', [TaskController::class, 'store']);
 
 Route::get('/register/create', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('home', [TaskController::class, 'index'])->name('task.index');
