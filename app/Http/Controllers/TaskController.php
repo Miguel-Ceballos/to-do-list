@@ -13,7 +13,7 @@ class TaskController extends Controller
 
     public function create()
     {
-        return view('admin.create');
+        return view('admin.tasks.create');
     }
 
     public function store(Request $request)

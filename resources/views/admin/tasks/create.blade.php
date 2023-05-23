@@ -7,7 +7,7 @@
             <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">Save time managing advertising
                 &amp; Content for your business.</p>
         </header>
-        <form action="{{ route('create') }}" method="POST">
+        <form action="{{ route('create-task') }}" method="POST">
             @csrf
             <div class="mb-5">
                 <label for="description" class="mb-2 block uppercase text-gray-500 font-bold">

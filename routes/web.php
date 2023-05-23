@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -18,8 +19,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [TaskController::class, 'index']);
 
-Route::get('/admin/create', [TaskController::class, 'create'])->name('create');
-Route::post('/admin/create', [TaskController::class, 'store']);
+Route::get('/admin/tasks/create', [TaskController::class, 'create'])->name('create-task');
+Route::post('/admin/tasks/create', [TaskController::class, 'store']);
+
+Route::get('/admin/pages/index', [PageController::class, 'index']);
+Route::get('/admin/pages/create', [PageController::class, 'create'])->name('create-page');
+Route::post('/admin/pages/create', [PageController::class, 'store']);
 
 Route::get('/register/create', [RegisterController::class, 'create'])->name('register');
 Route::post('/register', [RegisterController::class, 'store']);
