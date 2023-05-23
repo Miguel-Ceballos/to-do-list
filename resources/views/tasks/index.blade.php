@@ -4,7 +4,7 @@
     <div class="container xl:max-w-6xl mx-auto px-4">
         <div class="text-right">
             <a href="{{ route('register') }}" class="p-6 font-bold uppercase">Register</a>
-            <a href="/Login" class="font-bold uppercase">Login</a>
+            <a href="{{ route('login') }}" class="font-bold uppercase">Login</a>
         </div>
         <header class="text-center mx-auto mb-12 lg:px-20">
             <h1 class="text-7xl leading-normal mb-2 font-bold text-black">TO DO LIST</h1>

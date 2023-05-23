@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +31,6 @@ Route::get('/register/create', [RegisterController::class, 'create'])->name('reg
 Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('home', [TaskController::class, 'index'])->name('task.index');
+
+Route::get('/sessions/login', [SessionsController::class, 'index'])->name('login');
+Route::post('/sessions/login', [SessionsController::class, 'store']);

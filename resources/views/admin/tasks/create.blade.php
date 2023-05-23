@@ -33,9 +33,10 @@
                             border-red-500
                         @enderror"
                 >
-                    <option id="todo" value="1">To do</option>
-                    <option id="todo" value="2">In progress</option>
-                    <option id="todo" value="3">Done</option>
+
+{{--                    <option id="todo" value="1">To do</option>--}}
+{{--                    <option id="todo" value="2">In progress</option>--}}
+{{--                    <option id="todo" value="3">Done</option>--}}
                 </select>
                 @error('status')
                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
