@@ -2,10 +2,21 @@
 <!-- component -->
 <div id="services" class="section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white">
     <div class="container xl:max-w-6xl mx-auto px-4">
-        <div class="text-right">
-            <a href="{{ route('register') }}" class="p-6 font-bold uppercase">Register</a>
-            <a href="{{ route('login') }}" class="font-bold uppercase">Login</a>
-        </div>
+        @auth()
+            <div class="text-right">
+                <a class="p-6">
+                    Hi
+                    <span class="font-bold">{{ auth()->user()->username }}</span>
+                </a>
+                <a href="{{ route('logout') }}" class="font-bold uppercase">Log out</a>
+            </div>
+        @else
+            <div class="text-right">
+                <a href="{{ route('register') }}" class="p-6 font-bold uppercase">Register</a>
+                <a href="{{ route('login') }}" class="font-bold uppercase">Login</a>
+            </div>
+        @endauth
+
         <header class="text-center mx-auto mb-12 lg:px-20">
             <h1 class="text-7xl leading-normal mb-2 font-bold text-black">TO DO LIST</h1>
             <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">Hola Miguel Ceballos, ¿Estás listo

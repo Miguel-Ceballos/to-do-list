@@ -32,5 +32,6 @@ Route::post('/register', [RegisterController::class, 'store']);
 
 Route::get('home', [TaskController::class, 'index'])->name('task.index');
 
-Route::get('/sessions/login', [SessionsController::class, 'index'])->name('login');
-Route::post('/sessions/login', [SessionsController::class, 'store']);
+Route::get('/login', [SessionsController::class, 'index'])->name('login');
+Route::post('/login', [SessionsController::class, 'store']);
+Route::get('/logout', [SessionsController::class, 'destroy'])->name('logout');
