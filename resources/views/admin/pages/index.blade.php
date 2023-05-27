@@ -2,10 +2,24 @@
 <!-- component -->
 <div id="services" class="section relative pt-20 pb-8 md:pt-16 md:pb-0 bg-white">
     <div class="container xl:max-w-6xl mx-auto px-4">
-        <div class="text-right">
-            <a href="{{ route('register') }}" class="p-6 font-bold uppercase">Register</a>
-            <a href="/Login" class="font-bold uppercase">Login</a>
-        </div>
+        @auth()
+            <div class="flex items-center gap-3">
+                <a class="p-6">
+                    Hi
+                    <span class="font-bold">{{ auth()->user()->username }}</span>
+                </a>
+                <form action="{{ route('logout') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="font-bold uppercase">Log out</button>
+                </form>
+            </div>
+        @else
+            <div class="text-right">
+                <a href="{{ route('register') }}" class="p-6 font-bold uppercase">Register</a>
+                <a href="{{ route('login') }}" class="font-bold uppercase">Login</a>
+            </div>
+        @endauth
+
         <header class="text-center mx-auto mb-12 lg:px-20">
             <h1 class="text-7xl leading-normal mb-2 font-bold text-black">TO DO LIST</h1>
             <p class="text-gray-500 leading-relaxed font-light text-xl mx-auto pb-2">Hola Miguel Ceballos, ¿Estás listo
@@ -14,6 +28,7 @@
         <div class="flex flex-wrap flex-row -mx-4 text-center it">
             <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/2 lg:px-6 wow fadeInUp"
                  data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: fadeInUp;">
+{{--                <a href="{{route('create-task')}}">--}}
                 <a href="{{route('create-task')}}">
                     <div
                         class="py-8 px-12 mb-12 bg-gray-100 border-b border-gray-100 transform transition duration-300 ease-in-out hover:-translate-y-2 rounded-lg">
@@ -36,7 +51,7 @@
             </div>
             <div class="flex-shrink px-4 max-w-full w-full sm:w-1/2 lg:w-1/2 lg:px-6 wow fadeInUp"
                  data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: fadeInUp;">
-                <a href="{{ route('create-page') }}">
+                <a href="{{route('create.page')}}">
                     <div
                         class="py-8 px-12 mb-12 bg-gray-100 border-b border-gray-100 transform transition duration-300 ease-in-out hover:-translate-y-2 rounded-lg">
                         <div class="inline-block text-gray-900 mb-4">

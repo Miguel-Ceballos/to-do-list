@@ -52,21 +52,25 @@
             </div>
 
             <div class="mb-6">
+                <input type="checkbox" name="remember" id="remember"><label class="text-gray-500 text-sm ml-2">Mantener mi
+                    sesión abierta</label>
+            </div>
+
+            <div class="mb-6">
                 <input type="submit" name="" id="" value="Login"
                        class="bg-gray-500 hover:bg-gray-700 transition-colors cursor-pointer uppercase font-bold w-full p-3 text-white rounded-lg mt-5 mb-10"
                 >
             </div>
 
-
-            <div class="flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="1rem" height="1rem">
-                    <path
-                        d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z"/>
-                </svg>
-                <a href="/" class="text-gray-700 ml-2">
-                    Back to Home
-                </a>
-            </div>
+            {{--            <div class="flex items-center">--}}
+            {{--                <svg xmlns="http://www.w3.org/2000/svg" id="Outline" viewBox="0 0 24 24" width="1rem" height="1rem">--}}
+            {{--                    <path--}}
+            {{--                        d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z"/>--}}
+            {{--                </svg>--}}
+            {{--                <a href="/" class="text-gray-700 ml-2">--}}
+            {{--                    Back to Home--}}
+            {{--                </a>--}}
+            {{--            </div>--}}
         </form>
     </div>
 </div>

@@ -5,7 +5,7 @@
         <header class="text-center mx-auto mb-12 lg:px-20">
             <h2 class="text-2xl leading-normal mb-10 font-bold text-black">Create a Page</h2>
         </header>
-        <form action="{{ route('create-page') }}" method="POST">
+        <form action="{{ route('create.page') }}" method="POST">
             @csrf
             <div class="mb-5">
                 <label for="page" class="mb-2 block uppercase text-gray-500 font-bold">
@@ -30,7 +30,7 @@
                     <path
                         d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z"/>
                 </svg>
-                <a href="/" class="text-gray-700 ml-2">
+                <a href="{{ route('pages.index', auth()->user()->username) }}" class="text-gray-700 ml-2">
                     Back to Home
                 </a>
             </div>

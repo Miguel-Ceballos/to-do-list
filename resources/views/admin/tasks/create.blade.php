@@ -24,21 +24,21 @@
                 @enderror
             </div>
             <div class="mb-5">
-                <label for="status" class="mb-2 block uppercase text-gray-500 font-bold">
-                    Status:
+                <label for="state" class="mb-2 block uppercase text-gray-500 font-bold">
+                    State:
                 </label>
-                <select id="status" name="status"
+                <select id="state" name="state"
                         class="border-gray-100 focus:border-indigo-100 focus:ring-indigo-500 rounded-md shadow-sm p-3 w-full
-                        @error('status')
+                        @error('state')
                             border-red-500
                         @enderror"
                 >
 
-{{--                    <option id="todo" value="1">To do</option>--}}
-{{--                    <option id="todo" value="2">In progress</option>--}}
-{{--                    <option id="todo" value="3">Done</option>--}}
+                    <option id="todo" value="1">To do</option>
+                    <option id="todo" value="2">In progress</option>
+                    <option id="todo" value="3">Done</option>
                 </select>
-                @error('status')
+                @error('state')
                 <p class="bg-red-500 text-white my-2 rounded-lg text-sm p-2 text-center">{{ $message }}</p>
                 @enderror
             </div>
@@ -76,7 +76,7 @@
                     <path
                         d="M17.17,24a1,1,0,0,1-.71-.29L8.29,15.54a5,5,0,0,1,0-7.08L16.46.29a1,1,0,1,1,1.42,1.42L9.71,9.88a3,3,0,0,0,0,4.24l8.17,8.17a1,1,0,0,1,0,1.42A1,1,0,0,1,17.17,24Z"/>
                 </svg>
-                <a href="/" class="text-gray-700 ml-2">
+                <a href="{{ route('pages.index', auth()->user()->username) }}" class="text-gray-700 ml-2">
                     Back to Home
                 </a>
             </div>

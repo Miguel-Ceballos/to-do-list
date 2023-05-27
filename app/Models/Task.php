@@ -10,10 +10,11 @@ class Task extends Model
     use HasFactory;
 
     protected $fillable = [
-        'description',
-        'status',
-        'comments',
-        'page'
+        'user_id',
+        'task',
+        'state_id',
+        'comment',
+        'page_id'
     ];
 
 }

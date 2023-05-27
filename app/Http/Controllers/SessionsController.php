@@ -27,8 +27,7 @@ class SessionsController extends Controller
             return back()->with('message', 'Incorrect credentials');
         }
 
-        return redirect()->route('task.index');
-
+        return redirect()->route('pages.index', auth()->user()->username);
     }
 
     public function destroy()

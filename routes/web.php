@@ -18,20 +18,23 @@ use Illuminate\Support\Facades\Route;
 */
 //Route::get('/', [])
 
-Route::get('/', [TaskController::class, 'index']);
+Route::get('/', \App\Http\Controllers\HomeController::class)->middleware('guest');
+
+Route::get('/create', [RegisterController::class, 'create'])->name('register');
+Route::post('/register', [RegisterController::class, 'store']);
+
+Route::get('/login', [SessionsController::class, 'index'])->name('login');
+Route::post('/login', [SessionsController::class, 'store']);
+Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
+
+Route::get('/{user:username}', [PageController::class, 'index'])->name('pages.index');
+Route::get('/admin/pages/create', [PageController::class, 'create'])->name('create.page');
+Route::post('/create', [PageController::class, 'store']);
 
 Route::get('/admin/tasks/create', [TaskController::class, 'create'])->name('create-task');
 Route::post('/admin/tasks/create', [TaskController::class, 'store']);
 
-Route::get('/admin/pages/index', [PageController::class, 'index']);
-Route::get('/admin/pages/create', [PageController::class, 'create'])->name('create-page');
-Route::post('/admin/pages/create', [PageController::class, 'store']);
 
-Route::get('/register/create', [RegisterController::class, 'create'])->name('register');
-Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('home', [TaskController::class, 'index'])->name('task.index');
 
-Route::get('/login', [SessionsController::class, 'index'])->name('login');
-Route::post('/login', [SessionsController::class, 'store']);
-Route::get('/logout', [SessionsController::class, 'destroy'])->name('logout');
+

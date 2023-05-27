@@ -2,28 +2,49 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Page;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index()
+    public function index(User $user)
     {
-        return view('tasks.index');
+
+
+//        dd($user->username);
+        return view('admin.pages.index');
     }
 
-    public function create()
+    public function create(Page $page)
     {
-        return view('admin.tasks.create');
+//        dd($page);
+        return view('admin.tasks.create', [
+            'page' => $page
+        ]);
     }
 
     public function store(Request $request)
     {
         $this->validate($request, [
             'description' => 'required|min:3|max:255',
-            'status' => 'required',
+            'state' => 'required',
             'comments' => 'max:255',
             'page' => 'required'
         ]);
+        $user_id =1;
+        $state_id =1;
+        $page_id =1;
+        Task::create([
+            'user_id' => $user_id,
+            'task' => $request->description,
+            'state_id' => $state_id,
+            'comment' => $request->comments,
+            'page_id' => $page_id
+        ]);
+
+        return redirect()->route('pages.index', auth()->user()->username);
     }
 
 }
