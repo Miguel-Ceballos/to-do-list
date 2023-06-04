@@ -11,10 +11,8 @@ class TaskController extends Controller
 {
     public function show(User $user, Page $page)
     {
-//        $tasks = Task::where('user_id', $user->id)->get();
         $tasks = Task::where('page_id', $page->id)->get();
-//        dd($tasks);
-        return view('admin.pages.show', [
+        return view('admin.tasks.show', [
             'user' => $user,
             'tasks' => $tasks
         ]);
