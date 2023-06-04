@@ -6,6 +6,7 @@ use App\Models\Page;
 use App\Models\Task;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PageController extends Controller
 {
@@ -24,6 +25,17 @@ class PageController extends Controller
         ]);
     }
 
+    public function show(User $user, Page $page)
+    {
+//        $tasks = Task::where('user_id', $user->id)->get();
+        $tasks = Task::where('page_id', $page->id)->get();
+//        dd($tasks);
+        return view('admin.pages.show', [
+            'user' => $user,
+            'tasks' => $tasks
+        ]);
+    }
+
     public function create()
     {
         return view('admin.pages.create');
@@ -39,7 +51,8 @@ class PageController extends Controller
 
         Page::create([
             'user_id' => $user_id,
-            'page' => $request->page
+            'page' => $request->page,
+            'slug' => Str::slug($request->page)
         ]);
 
         return redirect()->route('pages.index', auth()->user()->username);

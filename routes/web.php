@@ -28,11 +28,10 @@ Route::post('/login', [SessionsController::class, 'store']);
 Route::post('/logout', [SessionsController::class, 'destroy'])->name('logout');
 
 Route::get('/{user:username}', [PageController::class, 'index'])->name('pages.index');
-//Route::get('/{page:page}', [PageController::class, 'show'])->name('pages.tasks');
 Route::get('/create', [PageController::class, 'create'])->name('create.page');
 Route::post('/create', [PageController::class, 'store']);
 
-Route::get('/{page:page}', [TaskController::class, 'index'])->name('task.index');
+Route::get('/{user:username}/{page:slug}', [TaskController::class, 'show']);
 Route::get('/admin/tasks/create', [TaskController::class, 'create'])->name('create-task');
 Route::post('/admin/tasks/create', [TaskController::class, 'store']);
 

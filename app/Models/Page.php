@@ -11,7 +11,8 @@ class Page extends Model
 
     protected $fillable = [
         'user_id',
-        'page'
+        'page',
+        'slug'
     ];
 
     public function author()

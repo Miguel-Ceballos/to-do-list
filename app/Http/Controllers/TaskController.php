@@ -9,11 +9,15 @@ use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function index(User $user)
+    public function show(User $user, Page $page)
     {
 //        $tasks = Task::where('user_id', $user->id)->get();
+        $tasks = Task::where('page_id', $page->id)->get();
 //        dd($tasks);
-        return view('admin.pages.index');
+        return view('admin.pages.show', [
+            'user' => $user,
+            'tasks' => $tasks
+        ]);
     }
 
     public function create(Page $page)
