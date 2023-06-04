@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Page;
+use App\Models\Task;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -13,9 +15,13 @@ class PageController extends Controller
         $this->middleware('auth');
     }
 
-    public function index()
+    public function index(User $user)
     {
-        return view('admin.pages.index');
+        $pages = Page::where('user_id', $user->id)->get();
+        //dd($pages);
+        return view('admin.pages.index', [
+            'pages' => $pages
+        ]);
     }
 
     public function create()

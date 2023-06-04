@@ -11,9 +11,8 @@ class TaskController extends Controller
 {
     public function index(User $user)
     {
-
-
-//        dd($user->username);
+//        $tasks = Task::where('user_id', $user->id)->get();
+//        dd($tasks);
         return view('admin.pages.index');
     }
 
@@ -33,11 +32,10 @@ class TaskController extends Controller
             'comments' => 'max:255',
             'page' => 'required'
         ]);
-        $user_id =1;
-        $state_id =1;
-        $page_id =1;
+        $state_id = 2;
+        $page_id = 2;
         Task::create([
-            'user_id' => $user_id,
+            'user_id' => auth()->user()->id,
             'task' => $request->description,
             'state_id' => $state_id,
             'comment' => $request->comments,
